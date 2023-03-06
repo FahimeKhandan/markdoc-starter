@@ -12,64 +12,72 @@ export function TableOfContents({ toc }) {
   }
 
   return (
-    <nav className="toc">
-      <ul className="flex column">
-        {items.map((item) => {
-          const href = item.id ? `#${item.id}` : null;
-          const active =
-            typeof window !== "undefined" && window.location.hash === href;
-          return (
-            <li
-              key={item.title}
-              className={[
-                active ? "active" : undefined,
-                item.level === 3 ? "padded" : undefined,
-                item.level === 2 ? "padded" : undefined,
-              ]
-                .filter(Boolean)
-                .join(" ")}
-            >
-              {href != null ? (
-                <Link href={href}>{item.title}</Link>
-              ) : (
-                <div>{item.title}</div>
-              )}
-            </li>
-          );
-        })}
-      </ul>
+    <aside
+      className="w-[220px] min-w-[220px] shadow-sm shadow-gray-400 fixed h-screen hidden lg:flex"
+      aria-label="Sidebar"
+    >
+      <div className="h-screen w-full flex flex-col">
+        <div className="p-3">
+          {/* logo  */}
+          <a href="/" className="flex items-center pr-2 mb-5">
+            <img
+              src="https://cdn.vandar.io/public/logos/typo.svg"
+              className="h-5 ml-3 sm:h-6"
+              alt="Vandar Logo"
+            />
+            <span className="self-center text-title-5-bold text-[#69b6e3] font-semibold whitespace-nowrap">
+              API
+            </span>
+          </a>
+        </div>
+
+        <div className="sidebar-menu">
+          <ul className="space-y-2 menu-list">
+            {items.map((item) => {
+              const href = item.id ? `#${item.id}` : null;
+              const active =
+                typeof window !== "undefined" && window.location.hash === href;
+              return (
+                <li
+                  key={item.title}
+                  className={[
+                    active ? "active" : undefined,
+                    item.level === 3 ? "pr-6" : undefined,
+                    item.level === 2 ? "pr-3" : undefined,
+                  ]
+                    .filter(Boolean)
+                    .join(" ")}
+                >
+                  {item.level !== 1 ? (
+                    <Link className="menu-accordion font-semibold" href={href}>
+                      <span className="font-medium text-body-2 py-0.5">
+                        {item.title}
+                      </span>
+                    </Link>
+                  ) : (
+                    <div className="flex">
+                      <span className="font-medium w-full text-body-2 py-0.5">
+                        {item.title}
+                      </span>
+                      <i className="mr-auto ri-lg ri-arrow-down-s-line text-gray-700"></i>
+                    </div>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </div>
+
       <style jsx>
         {`
-          nav {
-            position: sticky;
-            top: calc(2.5rem + var(--top-nav-height));
-            max-height: calc(100vh - var(--top-nav-height));
-            flex: 0 0 auto;
-            align-self: flex-start;
-            margin-bottom: 1rem;
-            padding: 0.5rem 0 0;
-            border-right: 1px solid var(--border-color);
-          }
-          ul {
-            margin: 0;
-            padding: 0 1.5rem;
-          }
-          li {
-            list-style-type: none;
-            margin: 0 0 1rem;
-          }
-          li :global(a) {
-            text-decoration: none;
-          }
-          li :global(a:hover),
-          li.active :global(a) {
-            text-decoration: underline;
-          }
-          li.padded {
-            padding-right: 1rem;
+          .menu-list {
+            .active {
+              @apply bg-primary-50 text-primary-500 rounded-lg w-full;
+            }
           }
         `}
       </style>
-    </nav>
+    </aside>
   );
 }
