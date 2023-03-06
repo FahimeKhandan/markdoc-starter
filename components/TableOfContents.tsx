@@ -2,11 +2,13 @@ import React from 'react';
 import Link from 'next/link';
 
 export function TableOfContents({toc}) {
-  const items = toc.filter(
-    (item) => item.id && (item.level === 2 || item.level === 3)
-  );
+  const items = toc
+    // .filter(
+    //   (item) => item.id && (item.level === 2 || item.level === 3)
+    // );
 
-  if (items.length <= 1) {
+    
+  if (items.length <= 0) {
     return null;
   }
 

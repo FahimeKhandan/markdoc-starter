@@ -18,23 +18,45 @@ const TITLE = "Markdoc";
 const DESCRIPTION = "A powerful, flexible, Markdown-based authoring framework";
 
 function collectHeadings(node, sections = []) {
-  if (node) {
-    console.log(node);
-    if (["h1", "h2", "h3"].includes(node.name)) {
-      const title = node.children[0];
+  if (node && node.content) {
+    const contentNode = JSON.parse(node.content);
+
+    console.log("node:", contentNode);
+
+    if (node.title) {
+      const title = node.title;
+      const level = node.level;
+      const id = node.id;
 
       if (typeof title === "string") {
-        console.log("att:", node.attributes);
+        console.log("att:", contentNode.attributes, title);
 
         sections.push({
-          ...node.attributes,
+          ...contentNode.attributes,
           title,
+          level,
+          id,
         });
       }
     }
 
-    if (node?.children) {
-      for (const child of node.children) {
+    // if (["h1", "h2", "h3"].includes(contentNode.name)) {
+    //   const title = contentNode.children[0];
+
+    //   if (typeof title === "string") {
+    //     console.log("att:", contentNode.attributes);
+
+    //     sections.push({
+    //       ...contentNode.attributes,
+    //       title,
+    //     });
+    //   }
+    // }
+
+    console.log(sections);
+
+    if (contentNode?.children) {
+      for (const child of contentNode.children) {
         collectHeadings(child, sections);
       }
     }
@@ -46,38 +68,46 @@ function collectHeadings(node, sections = []) {
 export type MyAppProps = MarkdocNextJsPageProps;
 
 export default function MyApp({ Component, pageProps }: AppProps<MyAppProps>) {
-  const markdoc = pageProps?.docs[0];
+  let sideMenu = [];
 
-  let title = TITLE;
-  let description = DESCRIPTION;
-  let level = 1;
-  let id = null;
-  if (markdoc) {
-    if (markdoc.title) {
-      title = markdoc.title;
-    }
-    if (markdoc.description) {
-      description = markdoc.description;
-    }
-    if (markdoc.id) {
-      id = markdoc.id;
-    }
-    if (markdoc.level) {
-      level = markdoc.level;
-    }
-    markdoc.content = JSON.parse(markdoc.content);
-  }
+  pageProps?.docs.forEach((element) => {
+    const markdoc = element;
 
-  const toc = markdoc?.content ? collectHeadings(markdoc) : [];
+    let title = TITLE;
+    let description = DESCRIPTION;
+    let level = 1;
+    let id = null;
+    if (markdoc) {
+      if (markdoc.title) {
+        title = markdoc.title;
+      }
+      if (markdoc.description) {
+        description = markdoc.description;
+      }
+      if (markdoc.id) {
+        id = markdoc.id;
+      }
+      if (markdoc.level) {
+        level = markdoc.level;
+      }
+      // markdoc.content = JSON.parse(markdoc.content);
+    }
+
+    const toc = markdoc?.content ? collectHeadings(markdoc) : [];
+    sideMenu.push(toc[0])
+
+    console.log('sideMenu',sideMenu);
+    
+  });
 
   return (
     <>
       <Head>
-        <title>{title}</title>
+        <title>Vandar API</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="referrer" content="strict-origin" />
-        <meta name="title" content={title} />
-        <meta name="description" content={description} />
+        <meta name="title" content="vandar api" />
+        <meta name="description" content="description" />
         <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -89,7 +119,7 @@ export default function MyApp({ Component, pageProps }: AppProps<MyAppProps>) {
         <main className="flex column">
           <Component {...pageProps} />
         </main>
-        <TableOfContents toc={toc} />
+        <TableOfContents  toc={sideMenu} />
       </div>
       <style jsx>
         {`

@@ -156,7 +156,7 @@ const Blog = (props) => {
             {/* <Link href={'/' + doc.slug}> */}
             <div className="sections">
               <div>
-                <h1>{doc.title}</h1>
+                <h1 id={doc.id}>{doc.title}</h1>
 
                 {Markdoc.renderers.react(parsedContent, React, {
                   components,
