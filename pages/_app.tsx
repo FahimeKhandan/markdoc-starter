@@ -53,7 +53,6 @@ function collectHeadings(node, sections = []) {
     //   }
     // }
 
-
     if (contentNode?.children) {
       for (const child of contentNode.children) {
         collectHeadings(child, sections);
@@ -77,26 +76,17 @@ export default function MyApp({ Component, pageProps }: AppProps<MyAppProps>) {
     let level = 1;
     let id = null;
     if (markdoc) {
-      if (markdoc.title) {
-        title = markdoc.title;
-      }
-      if (markdoc.description) {
-        description = markdoc.description;
-      }
-      if (markdoc.id) {
-        id = markdoc.id;
-      }
-      if (markdoc.level) {
-        level = markdoc.level;
-      }
-      // markdoc.content = JSON.parse(markdoc.content);
+      title = markdoc.title ?? null;
+      description = markdoc.description ?? null;
+      id = markdoc.idvalue ?? null;
+      level = markdoc.level ?? null;
     }
+    console.log(id);
+    
 
     const toc = markdoc?.content ? collectHeadings(markdoc) : [];
-    sideMenu.push(toc[0])
+    sideMenu.push(toc[0]);
 
-    console.log('sideMenu',sideMenu);
-    
   });
 
   return (
@@ -115,7 +105,7 @@ export default function MyApp({ Component, pageProps }: AppProps<MyAppProps>) {
       </TopNav> */}
       <div className="page">
         {/* <SideNav /> */}
-        <TableOfContents  toc={sideMenu} />
+        <TableOfContents toc={sideMenu} />
         <main className="flex column">
           <Component {...pageProps} />
         </main>
@@ -125,7 +115,7 @@ export default function MyApp({ Component, pageProps }: AppProps<MyAppProps>) {
           .page {
           }
           main {
-           padding-right:200px;
+            padding-right: 300px;
 
             overflow: auto;
             height: calc(100vh - var(--top-nav-height));

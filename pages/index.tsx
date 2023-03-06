@@ -16,7 +16,7 @@ import Prism from "prismjs";
 //     : {};
 // };
 
-const sortingArr = ["b", "a", "c"];
+const sortingArr = ["authentication", "cash-in"];
 
 export const getStaticProps = async () => {
   // Find all Markdown files in the /docs directory
@@ -24,19 +24,20 @@ export const getStaticProps = async () => {
   const docPaths = await glob(path.join(DOCS_DIR, "**/*main.md"));
 
   const afterSorting = docPaths.sort(function (a, b) {
-    const brA = path.dirname(a).slice(process.cwd().length + 6);
-    const brB = path.dirname(b).slice(process.cwd().length + 6);
+    const branchA = path.dirname(a).slice(process.cwd().length + 6);
+    const branchB = path.dirname(b).slice(process.cwd().length + 6);
 
-    const brASub = brA.substring(
+    const branchASub = branchA.substring(
       0,
-      brA.includes("/") ? brA.indexOf("/") : brA.length
+      branchA.includes("/") ? branchA.indexOf("/") : branchA.length
     );
-    const brBSub = brB.substring(
+    const branchBSub = branchB.substring(
       0,
-      brB.includes("/") ? brB.indexOf("/") : brB.length
+      branchB.includes("/") ? branchB.indexOf("/") : branchB.length
     );
 
-    let result = sortingArr.indexOf(brASub) - sortingArr.indexOf(brBSub);
+    let result =
+      sortingArr.indexOf(branchASub) - sortingArr.indexOf(branchBSub);
 
     if (result === 0) result = -1;
     return result;
@@ -46,14 +47,21 @@ export const getStaticProps = async () => {
     const slug = path.basename(docPath, path.extname(docPath));
     const source = fs.readFileSync(docPath, "utf-8");
 
-    const sourceRequest = fs.readFileSync(
-      path.dirname(docPath) + "/request.md",
-      "utf-8"
-    );
-    const sourceResponse = fs.readFileSync(
-      path.dirname(docPath) + "/response.md",
-      "utf-8"
-    );
+    const requestPath = path.dirname(docPath) + "/request.md";
+    const responsePath = path.dirname(docPath) + "/response.md";
+    const endpointPath = path.dirname(docPath) + "/endpoint.md";
+
+    const sourceRequest = fs.existsSync(requestPath)
+      ? fs.readFileSync(requestPath, "utf-8")
+      : null;
+
+    const sourceResponse = fs.existsSync(responsePath)
+      ? fs.readFileSync(responsePath, "utf-8")
+      : null;
+
+    const sourceEndpoint = fs.existsSync(endpointPath)
+      ? fs.readFileSync(endpointPath, "utf-8")
+      : null;
 
     // Use gray-matter to fetch the data between the `---` at the top of our Markdown files.
     const matterResult = matter(source);
@@ -71,17 +79,27 @@ export const getStaticProps = async () => {
 
     // Use Markdoc to create a tree of tokens based on the Markdown file
     const ast = Markdoc.parse(source);
-    const astrequest = Markdoc.parse(sourceRequest);
-    const astResponse = Markdoc.parse(sourceResponse);
+
+    const astrequest = sourceRequest ? Markdoc.parse(sourceRequest) : null;
+    const astResponse = sourceResponse ? Markdoc.parse(sourceResponse) : null;
+    const astEndpoint = sourceEndpoint ? Markdoc.parse(sourceEndpoint) : null;
 
     // Create a renderable tree
     const content = JSON.stringify(Markdoc.transform(ast, config));
-    const contentRequest = JSON.stringify(
-      Markdoc.transform(astrequest, config)
-    );
-    const contentResponse = JSON.stringify(
-      Markdoc.transform(astResponse, config)
-    );
+
+    const contentRequest = astrequest
+      ? JSON.stringify(Markdoc.transform(astrequest, config))
+      : null;
+
+    const contentResponse = astResponse
+      ? JSON.stringify(Markdoc.transform(astResponse, config))
+      : null;
+
+    const contentEndpoint = astEndpoint
+      ? JSON.stringify(Markdoc.transform(astEndpoint, config))
+      : null;
+
+      // const id = id ?? 'dddd'
 
     return {
       title,
@@ -92,6 +110,7 @@ export const getStaticProps = async () => {
       content,
       contentRequest,
       contentResponse,
+      contentEndpoint,
     };
   });
 
@@ -175,6 +194,7 @@ const Blog = (props) => {
         const parsedContent = JSON.parse(doc.content);
         const parsedContentRequest = JSON.parse(doc.contentRequest);
         const parsedContentResponse = JSON.parse(doc.contentResponse);
+        const parsedContentEndpoint = JSON.parse(doc.contentEndpoint);
 
         return (
           <section key={i}>
@@ -192,6 +212,9 @@ const Blog = (props) => {
                   components,
                 })}
                 {Markdoc.renderers.react(parsedContentResponse, React, {
+                  components,
+                })}
+                 {Markdoc.renderers.react(parsedContentEndpoint , React, {
                   components,
                 })}
               </div>

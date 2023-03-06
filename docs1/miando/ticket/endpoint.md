@@ -1,0 +1,1 @@
+**POST** {% .post %}/miando/api/v1/tickets

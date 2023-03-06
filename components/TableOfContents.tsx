@@ -1,13 +1,12 @@
-import React from 'react';
-import Link from 'next/link';
+import React from "react";
+import Link from "next/link";
 
-export function TableOfContents({toc}) {
-  const items = toc
-    // .filter(
-    //   (item) => item.id && (item.level === 2 || item.level === 3)
-    // );
+export function TableOfContents({ toc }) {
+  const items = toc;
+  // .filter(
+  //   (item) => item.id && (item.level === 2 || item.level === 3)
+  // );
 
-    
   if (items.length <= 0) {
     return null;
   }
@@ -16,22 +15,25 @@ export function TableOfContents({toc}) {
     <nav className="toc">
       <ul className="flex column">
         {items.map((item) => {
-          const href = `#${item.id}`;
+          const href = item.id ? `#${item.id}` : null;
           const active =
-            typeof window !== 'undefined' && window.location.hash === href;
+            typeof window !== "undefined" && window.location.hash === href;
           return (
             <li
               key={item.title}
               className={[
-                active ? 'active' : undefined,
-                item.level === 3 ? 'padded' : undefined,
+                active ? "active" : undefined,
+                item.level === 3 ? "padded" : undefined,
+                item.level === 2 ? "padded" : undefined,
               ]
                 .filter(Boolean)
-                .join(' ')}
+                .join(" ")}
             >
-              <Link href={href}>
-                {item.title}
-              </Link>
+              {href != null ? (
+                <Link href={href}>{item.title}</Link>
+              ) : (
+                <div>{item.title}</div>
+              )}
             </li>
           );
         })}

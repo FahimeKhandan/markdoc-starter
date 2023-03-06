@@ -1,0 +1,1 @@
+**POST** {% .post %}/v3/business/:business/customers/:customer_uuid/logs
