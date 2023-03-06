@@ -10,18 +10,39 @@ const yaml = require("js-yaml");
 
 import Prism from "prismjs";
 
-const parseMarkdocFrontmatter = (ast) => {
-  return ast.attributes.frontmatter
-    ? yaml.load(ast.attributes.frontmatter)
-    : {};
-};
+// const parseMarkdocFrontmatter = (ast) => {
+//   return ast.attributes.frontmatter
+//     ? yaml.load(ast.attributes.frontmatter)
+//     : {};
+// };
+
+const sortingArr = ["b", "a", "c"];
 
 export const getStaticProps = async () => {
   // Find all Markdown files in the /docs directory
   const DOCS_DIR = path.join(process.cwd(), "docs");
   const docPaths = await glob(path.join(DOCS_DIR, "**/*main.md"));
 
-  const docs = docPaths?.map((docPath) => {
+  const afterSorting = docPaths.sort(function (a, b) {
+    const brA = path.dirname(a).slice(process.cwd().length + 6);
+    const brB = path.dirname(b).slice(process.cwd().length + 6);
+
+    const brASub = brA.substring(
+      0,
+      brA.includes("/") ? brA.indexOf("/") : brA.length
+    );
+    const brBSub = brB.substring(
+      0,
+      brB.includes("/") ? brB.indexOf("/") : brB.length
+    );
+
+    let result = sortingArr.indexOf(brASub) - sortingArr.indexOf(brBSub);
+
+    if (result === 0) result = -1;
+    return result;
+  });
+
+  const docs = afterSorting?.map((docPath) => {
     const slug = path.basename(docPath, path.extname(docPath));
     const source = fs.readFileSync(docPath, "utf-8");
 
@@ -61,7 +82,6 @@ export const getStaticProps = async () => {
     const contentResponse = JSON.stringify(
       Markdoc.transform(astResponse, config)
     );
-
 
     return {
       title,
@@ -128,12 +148,17 @@ const components = {
           {`
             .code {
               position: relative;
+              direction: ltr;
             }
 
             /* Override Prism styles */
             .code :global(pre[class*="language-"]) {
               text-shadow: none;
               border-radius: 4px;
+            }
+            :not(pre) > code[class*="language-"],
+            pre[class*="language-"] {
+              background: #f5f5f5;
             }
           `}
         </style>
@@ -163,15 +188,13 @@ const Blog = (props) => {
                 })}
               </div>
               <div>
-              {Markdoc.renderers.react(parsedContentRequest, React, {
-                components,
-              })}
-              {Markdoc.renderers.react(parsedContentResponse, React, {
-                components,
-              })}
+                {Markdoc.renderers.react(parsedContentRequest, React, {
+                  components,
+                })}
+                {Markdoc.renderers.react(parsedContentResponse, React, {
+                  components,
+                })}
               </div>
-
-             
             </div>
           </section>
         );

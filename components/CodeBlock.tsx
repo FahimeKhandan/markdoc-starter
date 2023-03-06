@@ -21,6 +21,7 @@ export function CodeBlock({children, 'data-language': language}) {
         {`
           .code {
             position: relative;
+            direction:ltr;
           }
 
           /* Override Prism styles */

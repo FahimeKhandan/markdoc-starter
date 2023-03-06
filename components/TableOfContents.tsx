@@ -46,7 +46,7 @@ export function TableOfContents({toc}) {
             align-self: flex-start;
             margin-bottom: 1rem;
             padding: 0.5rem 0 0;
-            border-left: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
           }
           ul {
             margin: 0;
@@ -64,7 +64,7 @@ export function TableOfContents({toc}) {
             text-decoration: underline;
           }
           li.padded {
-            padding-left: 1rem;
+            padding-right: 1rem;
           }
         `}
       </style>

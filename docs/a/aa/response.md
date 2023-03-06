@@ -11,7 +11,3 @@ description: vandar api
     "refresh_token": "def50200c4d2462d2de167da1*******"
 }
 ```
-
-```html
-<div></div>
-```

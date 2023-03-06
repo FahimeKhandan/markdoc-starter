@@ -53,7 +53,6 @@ function collectHeadings(node, sections = []) {
     //   }
     // }
 
-    console.log(sections);
 
     if (contentNode?.children) {
       for (const child of contentNode.children) {
@@ -111,31 +110,27 @@ export default function MyApp({ Component, pageProps }: AppProps<MyAppProps>) {
         <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <TopNav>
+      {/* <TopNav>
         <Link href="/docs">Docs</Link>
-      </TopNav>
+      </TopNav> */}
       <div className="page">
-        <SideNav />
+        {/* <SideNav /> */}
+        <TableOfContents  toc={sideMenu} />
         <main className="flex column">
           <Component {...pageProps} />
         </main>
-        <TableOfContents  toc={sideMenu} />
       </div>
       <style jsx>
         {`
           .page {
-            position: fixed;
-            top: var(--top-nav-height);
-            display: flex;
-            width: 100vw;
-            flex-grow: 1;
           }
           main {
+           padding-right:200px;
+
             overflow: auto;
             height: calc(100vh - var(--top-nav-height));
             flex-grow: 1;
             font-size: 16px;
-            padding: 0 2rem 2rem;
           }
         `}
       </style>
