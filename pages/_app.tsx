@@ -1,36 +1,39 @@
-import React from 'react';
-import Head from 'next/head';
-import Link from 'next/link';
+import React from "react";
+import Head from "next/head";
+import Link from "next/link";
 
-import { SideNav, TableOfContents, TopNav } from '../components';
+import { SideNav, TableOfContents, TopNav } from "../components";
 
-import 'prismjs';
+import "prismjs";
 // Import other Prism themes here
-import 'prismjs/components/prism-bash.min';
-import 'prismjs/themes/prism.css';
+import "prismjs/components/prism-bash.min";
+import "prismjs/themes/prism.css";
 
-import '../public/globals.css'
+import "../public/globals.css";
 
-import type { AppProps } from 'next/app'
-import type { MarkdocNextJsPageProps } from '@markdoc/next.js'
+import type { AppProps } from "next/app";
+import type { MarkdocNextJsPageProps } from "@markdoc/next.js";
 
-const TITLE = 'Markdoc';
-const DESCRIPTION = 'A powerful, flexible, Markdown-based authoring framework';
+const TITLE = "Markdoc";
+const DESCRIPTION = "A powerful, flexible, Markdown-based authoring framework";
 
 function collectHeadings(node, sections = []) {
   if (node) {
-    if (node.name === 'Heading') {
+    console.log(node);
+    if (["h1", "h2", "h3"].includes(node.name)) {
       const title = node.children[0];
 
-      if (typeof title === 'string') {
+      if (typeof title === "string") {
+        console.log("att:", node.attributes);
+
         sections.push({
           ...node.attributes,
-          title
+          title,
         });
       }
     }
 
-    if (node.children) {
+    if (node?.children) {
       for (const child of node.children) {
         collectHeadings(child, sections);
       }
@@ -40,25 +43,32 @@ function collectHeadings(node, sections = []) {
   return sections;
 }
 
-export type MyAppProps = MarkdocNextJsPageProps
+export type MyAppProps = MarkdocNextJsPageProps;
 
 export default function MyApp({ Component, pageProps }: AppProps<MyAppProps>) {
-  const { markdoc } = pageProps;
+  const markdoc = pageProps?.docs[0];
 
   let title = TITLE;
   let description = DESCRIPTION;
+  let level = 1;
+  let id = null;
   if (markdoc) {
-    if (markdoc.frontmatter.title) {
-      title = markdoc.frontmatter.title;
+    if (markdoc.title) {
+      title = markdoc.title;
     }
-    if (markdoc.frontmatter.description) {
-      description = markdoc.frontmatter.description;
+    if (markdoc.description) {
+      description = markdoc.description;
     }
+    if (markdoc.id) {
+      id = markdoc.id;
+    }
+    if (markdoc.level) {
+      level = markdoc.level;
+    }
+    markdoc.content = JSON.parse(markdoc.content);
   }
 
-  const toc = pageProps.markdoc?.content
-    ? collectHeadings(pageProps.markdoc.content)
-    : [];
+  const toc = markdoc?.content ? collectHeadings(markdoc) : [];
 
   return (
     <>
@@ -84,7 +94,7 @@ export default function MyApp({ Component, pageProps }: AppProps<MyAppProps>) {
       <style jsx>
         {`
           .page {
-            position: fixed; 
+            position: fixed;
             top: var(--top-nav-height);
             display: flex;
             width: 100vw;

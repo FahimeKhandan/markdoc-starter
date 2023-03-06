@@ -27,6 +27,24 @@ npm run dev
 yarn dev
 ```
 
+
+```js
+var request = require('request');
+var options = {
+  'method': 'GET',
+  'url': '/v2/business/:business/transaction',
+  'headers': {
+    'Accept': 'application/json',
+    'Authorization': 'Bearer token',
+    'Content-Type': 'application/json'
+  },
+};
+request(options, function (error, response) {
+  if (error) throw new Error(error);
+  console.log(response.body);
+});
+```
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `index.md`. The page auto-updates as you edit the file.
@@ -42,3 +60,5 @@ The quickest way to deploy your own version of this boilerplate is by deploying 
 ### Deploy to Netlify
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/markdoc/next.js-starter)
+
+

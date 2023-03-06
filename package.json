@@ -11,6 +11,9 @@
     "next": "latest",
     "prismjs": "latest",
     "react": "latest",
+    "date-fns": "^2.29.1",
+    "glob-promise": "^4.2.2",
+    "gray-matter": "^4.0.3",
     "react-dom": "latest"
   },
   "devDependencies": {
