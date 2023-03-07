@@ -151,7 +151,7 @@ const components = {
   Paragraph: ({ children }) => {
     return <p className="leading-relaxed mb-8 text-lg">{children}</p>;
   },
-  Fence: ({ children, dark, language }) => {
+  Fence: ({ children, language }) => {
     const ref = React.useRef(null);
 
     React.useEffect(() => {
@@ -167,24 +167,16 @@ const components = {
             <i className="ri-clipboard-fill text-blue-200 ri-lg pointer-events-none"></i>
           </button>
         </div>
-        <div
-          className={dark ? "code bg-request-body" : "code bg-request-body"}
-          aria-live="polite"
-        >
+        <div className={"fence-body bg-request-body"} aria-live="polite">
           <pre ref={ref} className={`language-${language} `}>
             {children}
           </pre>
         </div>
         <style jsx>
           {`
-            .code {
-              position: relative;
-            }
-
             /* Override Prism styles */
-            .code :global(pre[class*="language-"]) {
-              text-shadow: none;
-              border-radius: 4px;
+            .fence-body :global(pre[class*="language-"]) {
+              overflow: unset;
               background: none;
             }
           `}
@@ -236,12 +228,14 @@ const Blog = (props) => {
                   {Markdoc.renderers.react(parsedContentRequest, React, {
                     components,
                   })}
-                  {Markdoc.renderers.react(parsedContentResponse, React, {
-                    components,
-                  })}
-                  {Markdoc.renderers.react(parsedContentEndpoint, React, {
-                    components,
-                  })}
+                  <div className="light-fence">
+                    {Markdoc.renderers.react(parsedContentResponse, React, {
+                      components,
+                    })}
+                    {Markdoc.renderers.react(parsedContentEndpoint, React, {
+                      components,
+                    })}
+                  </div>
                 </div>
               </div>
             </div>

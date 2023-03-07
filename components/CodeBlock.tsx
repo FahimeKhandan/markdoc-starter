@@ -19,16 +19,16 @@ export function CodeBlock({children, 'data-language': language}) {
       </pre>
       <style jsx>
         {`
-          .code {
-            position: relative;
-            direction:ltr;
-          }
+          // .code {
+          //   position: relative;
+          //   direction:ltr;
+          // }
 
-          /* Override Prism styles */
-          .code :global(pre[class*='language-']) {
-            text-shadow: none;
-            border-radius: 4px;
-          }
+          // /* Override Prism styles */
+          // .code :global(pre[class*='language-']) {
+          //   text-shadow: none;
+          //   border-radius: 4px;
+          // }
         `}
       </style>
     </div>
