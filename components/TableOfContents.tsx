@@ -1,6 +1,8 @@
 import React from "react";
 import Link from "next/link";
 
+import { SearchBox } from "../components";
+
 export function TableOfContents({ toc }) {
   const items = toc;
   // .filter(
@@ -29,6 +31,7 @@ export function TableOfContents({ toc }) {
               API
             </span>
           </a>
+          <SearchBox />
         </div>
 
         <div className="sidebar-menu">
@@ -49,7 +52,7 @@ export function TableOfContents({ toc }) {
                     .join(" ")}
                 >
                   {item.level !== 1 ? (
-                    <Link className="menu-accordion font-semibold" href={href}>
+                    <Link className="flex items-center text-base font-bold mt-1 text-gray-500 rounded-lg hover:text-gray-800" href={href}>
                       <span className="font-medium text-body-2 py-0.5">
                         {item.title}
                       </span>

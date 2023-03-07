@@ -99,7 +99,7 @@ export const getStaticProps = async () => {
       ? JSON.stringify(Markdoc.transform(astEndpoint, config))
       : null;
 
-      // const id = id ?? 'dddd'
+    // const id = id ?? 'dddd'
 
     return {
       title,
@@ -151,7 +151,7 @@ const components = {
   Paragraph: ({ children }) => {
     return <p className="leading-relaxed mb-8 text-lg">{children}</p>;
   },
-  Fence: ({ children, language }) => {
+  Fence: ({ children, dark, language }) => {
     const ref = React.useRef(null);
 
     React.useEffect(() => {
@@ -159,25 +159,33 @@ const components = {
     }, [children]);
 
     return (
-      <div className="code" aria-live="polite">
-        <pre ref={ref} className={`language-${language}`}>
-          {children}
-        </pre>
+      <div className="fence-item">
+        <div className="fence-toolbar">
+          <span>title</span>
+          <p className="ml-2 text-gray-300 text-caption-1">discription</p>
+          <button className="ml-auto flex">
+            <i className="ri-clipboard-fill text-blue-200 ri-lg pointer-events-none"></i>
+          </button>
+        </div>
+        <div
+          className={dark ? "code bg-request-body" : "code bg-request-body"}
+          aria-live="polite"
+        >
+          <pre ref={ref} className={`language-${language} `}>
+            {children}
+          </pre>
+        </div>
         <style jsx>
           {`
             .code {
               position: relative;
-              direction: ltr;
             }
 
             /* Override Prism styles */
             .code :global(pre[class*="language-"]) {
               text-shadow: none;
               border-radius: 4px;
-            }
-            :not(pre) > code[class*="language-"],
-            pre[class*="language-"] {
-              background: #f5f5f5;
+              background: none;
             }
           `}
         </style>
@@ -197,37 +205,50 @@ const Blog = (props) => {
         const parsedContentEndpoint = JSON.parse(doc.contentEndpoint);
 
         return (
-          <section key={i}>
+          <section key={i} className="api-section">
             {/* <Link href={'/' + doc.slug}> */}
-            <div className="sections">
-              <div>
-                <h1 id={doc.id}>{doc.title}</h1>
+            <div className="element">
+              <div className="relative pl-[4%] pr-[6%] py-[74px] w-full flex flex-col lg:grid lg:grid-cols-11">
+                <div className="col-span-6 lg:ml-16">
+                  <h1 id={doc.id}>{doc.title}</h1>
 
-                {Markdoc.renderers.react(parsedContent, React, {
-                  components,
-                })}
-              </div>
-              <div>
-                {Markdoc.renderers.react(parsedContentRequest, React, {
-                  components,
-                })}
-                {Markdoc.renderers.react(parsedContentResponse, React, {
-                  components,
-                })}
-                 {Markdoc.renderers.react(parsedContentEndpoint , React, {
-                  components,
-                })}
+                  {Markdoc.renderers.react(parsedContent, React, {
+                    components,
+                  })}
+                  <div className="mt-8 text-body-2 font-medium text-gray-600">
+                    آیا این بخش مفید بود؟
+                    <a className="cursor-pointer mr-1"> بلی </a>
+                    <a className="cursor-pointer mr-1"> خیر </a>
+                  </div>
+                  <p
+                    v-else
+                    className="mt-8 text-body-2 font-medium text-gray-600"
+                  >
+                    از اینکه با ثبت نظر خود، به بهبود داکیومنت‌های وندار کمک
+                    می‌کنید، از شما متشکریم. در صورت داشتن هرگونه سوال با بخش
+                    پشایبانی تماس بگیرید.
+                    <a className="mr-1" href="https://vandar.io/">
+                      تماس با پشتیبانی
+                    </a>
+                  </p>
+                </div>
+                <div className="fence-container">
+                  {Markdoc.renderers.react(parsedContentRequest, React, {
+                    components,
+                  })}
+                  {Markdoc.renderers.react(parsedContentResponse, React, {
+                    components,
+                  })}
+                  {Markdoc.renderers.react(parsedContentEndpoint, React, {
+                    components,
+                  })}
+                </div>
               </div>
             </div>
           </section>
         );
       })}
-      <style jsx>
-        {`
-          .sections {
-            display: flex;
-        `}
-      </style>
+      <style jsx>{``}</style>
     </div>
   );
 };

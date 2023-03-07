@@ -2,7 +2,7 @@ import React from "react";
 import Head from "next/head";
 import Link from "next/link";
 
-import { SideNav, TableOfContents, TopNav } from "../components";
+import { TableOfContents, Navbar } from "../components";
 
 import "prismjs";
 // Import other Prism themes here
@@ -11,8 +11,7 @@ import "prismjs/themes/prism.css";
 
 import "../public/globals.scss";
 
-import 'remixicon/fonts/remixicon.css'
-
+import "remixicon/fonts/remixicon.css";
 
 import type { AppProps } from "next/app";
 import type { MarkdocNextJsPageProps } from "@markdoc/next.js";
@@ -24,16 +23,12 @@ function collectHeadings(node, sections = []) {
   if (node && node.content) {
     const contentNode = JSON.parse(node.content);
 
-    console.log("node:", contentNode);
-
     if (node.title) {
       const title = node.title;
       const level = node.level;
       const id = node.id;
 
       if (typeof title === "string") {
-        console.log("att:", contentNode.attributes, title);
-
         sections.push({
           ...contentNode.attributes,
           title,
@@ -84,12 +79,9 @@ export default function MyApp({ Component, pageProps }: AppProps<MyAppProps>) {
       id = markdoc.idvalue ?? null;
       level = markdoc.level ?? null;
     }
-    console.log(id);
-    
 
     const toc = markdoc?.content ? collectHeadings(markdoc) : [];
     sideMenu.push(toc[0]);
-
   });
 
   return (
@@ -106,27 +98,16 @@ export default function MyApp({ Component, pageProps }: AppProps<MyAppProps>) {
       {/* <TopNav>
         <Link href="/docs">Docs</Link>
       </TopNav> */}
-      <div className="page">
+      <div className="flex">
         {/* <SideNav /> */}
         <TableOfContents toc={sideMenu} />
-        <main className="flex column">
+        <main className="w-screen lg:pr-[220px]">
+          <Navbar />
+
           <Component {...pageProps} />
         </main>
       </div>
-      <style jsx>
-        {`
-          .page {
-          }
-          main {
-            padding-right: 300px;
-
-            overflow: auto;
-            height: calc(100vh - var(--top-nav-height));
-            flex-grow: 1;
-            font-size: 16px;
-          }
-        `}
-      </style>
+      <style jsx>{``}</style>
     </>
   );
 }
