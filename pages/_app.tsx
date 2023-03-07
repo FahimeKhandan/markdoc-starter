@@ -2,6 +2,7 @@ import React from "react";
 import Head from "next/head";
 import Link from "next/link";
 
+
 import { TableOfContents, Navbar } from "../components";
 
 // import "prismjs";
@@ -11,6 +12,7 @@ import { TableOfContents, Navbar } from "../components";
 
 import "../public/globals.scss";
 
+import * as te from 'tw-elements';
 import "remixicon/fonts/remixicon.css";
 
 import type { AppProps } from "next/app";

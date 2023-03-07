@@ -1,4 +1,4 @@
-```js towslash
+```js 
 var request = require('request');
 var options = {
   'method': 'DELETE',

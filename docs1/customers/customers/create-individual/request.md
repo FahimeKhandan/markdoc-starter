@@ -1,4 +1,4 @@
-```js towslash
+```js 
 {
     "first_name": "الناز",
     "last_name": "نوروزی",
