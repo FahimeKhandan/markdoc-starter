@@ -1,6 +1,5 @@
 ---
 title: احراز هویتb
-description: vandar api
 id: authentication-b
 level: 2
 ---

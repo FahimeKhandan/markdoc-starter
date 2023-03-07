@@ -17,7 +17,7 @@ import Prism from "prismjs";
 //     : {};
 // };
 
-const sortingArr = ["authentication", "cash-in"];
+const sortingArr = ["authentication", "cash-in", "customers"];
 
 export const getStaticProps = async () => {
   // Find all Markdown files in the /docs directory
@@ -67,7 +67,7 @@ export const getStaticProps = async () => {
     // Use gray-matter to fetch the data between the `---` at the top of our Markdown files.
     const matterResult = matter(source);
 
-    const { title, description, id, level } = matterResult.data;
+    const { title, id, level } = matterResult.data;
 
     // Generate the local Markdown path from the URL slug
     // const {
@@ -106,7 +106,6 @@ export const getStaticProps = async () => {
       title,
       id,
       level,
-      description,
       slug,
       content,
       contentRequest,

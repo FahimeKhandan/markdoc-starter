@@ -1,6 +1,5 @@
 ---
 title: احراز هویت c
-description: vandar api
 id: authentication-c
 level: 3
 ---

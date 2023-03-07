@@ -1,6 +1,5 @@
 ---
 title: دریافت لیست حساب های فعال
-description: vandar api
 id: cashin_active_ibans
 level: 2
 ---

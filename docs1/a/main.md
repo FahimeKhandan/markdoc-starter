@@ -1,6 +1,5 @@
 ---
 title: احراز هویت A
-description: vandar api
 id: authentication-a
 level: 1
 ---

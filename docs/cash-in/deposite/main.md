@@ -1,6 +1,5 @@
 ---
 title: درخواست واریز بانکی
-description: vandar api
 id: cahin_deposite
 level: 2
 ---

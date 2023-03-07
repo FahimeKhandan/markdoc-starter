@@ -1,6 +1,5 @@
 ---
 title: دریافت موجودی حساب
-description: vandar api
 id: cashin_get_balance
 level: 2
 ---

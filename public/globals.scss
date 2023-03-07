@@ -396,6 +396,11 @@ div.code-container {
  * Based on dabblet (http://dabblet.com)
  * @author Lea Verou
  */
+ p{
+ &::-moz-selection, &::selection{
+  @apply bg-gray-500;
+ }
+ }
 
 code[class*="language-"],
 pre[class*="language-"] {
@@ -403,20 +408,20 @@ pre[class*="language-"] {
   font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
 }
 
-pre[class*="language-"]::-moz-selection,
-pre[class*="language-"] ::-moz-selection,
-code[class*="language-"]::-moz-selection,
-code[class*="language-"] ::-moz-selection {
-  text-shadow: none;
-  background: #b3d4fc;
-}
-
-pre[class*="language-"]::selection,
-pre[class*="language-"] ::selection,
-code[class*="language-"]::selection,
-code[class*="language-"] ::selection {
-  text-shadow: none;
-  background: #b3d4fc;
+pre[class*="language-"],
+code[class*="language-"]{
+  &::-moz-selection {
+    @apply bg-gray-500;
+  }
+  &::selection{
+    @apply bg-gray-500;
+  }
+  & ::-moz-selection {
+    @apply bg-gray-500;
+  }
+  & ::selection{
+    @apply bg-gray-500;
+  }
 }
 
 @media print {
@@ -428,14 +433,12 @@ code[class*="language-"] ::selection {
 
 /* Code blocks */
 pre[class*="language-"] {
-  padding: 1em;
-  margin: 0.5em 0;
   overflow: auto;
 }
 
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-  background: #f5f2f0;
+  @apply bg-gray-50;
 }
 
 /* Inline code */
@@ -515,6 +518,26 @@ pre[class*="language-"] {
 }
 
 .light-fence {
+  code[class*="language-"],
+  pre[class*="language-"] {
+    @apply text-gray-500;
+  }
+
+  pre[class*="language-"],
+code[class*="language-"]{
+  &::-moz-selection {
+    @apply bg-gray-200;
+  }
+  &::selection{
+    @apply bg-gray-200;
+  }
+  & ::-moz-selection {
+    @apply bg-gray-200;
+  }
+  & ::selection{
+    @apply bg-gray-200;
+  }
+}
   .fence-body {
     .token.property,
     .token.tag,
@@ -524,14 +547,14 @@ pre[class*="language-"] {
       @apply text-gray-500;
     }
   }
+  .token.operator {
+    @apply text-gray-500;
+  }
 
   .token.number {
     @apply text-orange-400;
   }
 }
-
-
-
 
 .tooltip {
   @apply bg-orange-200;
@@ -545,9 +568,6 @@ pre[class*="language-"] {
     @apply absolute bg-gray-25 h-3 w-3 right-[46%] -bottom-[5px] rotate-45 border border-t-0 border-l-0 border-gray-200;
   }
 }
-
-
-
 
 // .copy-btn{
 //   .hide{
