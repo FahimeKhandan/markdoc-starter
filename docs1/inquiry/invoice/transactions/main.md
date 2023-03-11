@@ -22,7 +22,7 @@
 {% paramaterItem title="status" details="string" %}
 مشخص کننده وضعیت تراکنش یا تسویه می‌باشد
 
-{% childAttributs title="وضعیت‌های مجاز" %}
+{% parameterPlus title="وضعیت‌های مجاز" %}
 {% table .child-att %}
  ---
 * succeed
@@ -37,13 +37,13 @@
 * canceled
     *	 وضعیت لغو شده
 {% /table %}
-{% /childAttributs %}
+{% /parameterPlus %}
 {% /paramaterItem%}
 
 {% paramaterItem title="channel" details="string" %}
 این پارامتر مشخص می‌کند که تراکنش از چه کانالی انجام شده است
 
-{% childAttributs title="کانال‌های مجاز" %}
+{% parameterPlus title="کانال‌های مجاز" %}
 {% table .child-att %}
  ---
 * ipg
@@ -64,7 +64,7 @@
 * cash-in 
     * تراکنش های واریز بانکی
 {% /table %}
-{% /childAttributs %}
+{% /parameterPlus %}
 {% /paramaterItem%}
 
 {% paramaterItem title="formId" details="string" %}

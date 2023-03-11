@@ -158,6 +158,18 @@ table.child-att {
   @apply mt-8;
 }
 
+.accordion-item {
+  button {
+    &[aria-expanded="false"]  {
+      @apply border-b border-x-gray-100 w-fit rounded-b-xl;
+
+      i {
+        @apply rotate-45;
+      }
+    }
+  }
+}
+
 .accordion-attr {
   button {
     @apply pl-0;

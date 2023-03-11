@@ -15,7 +15,7 @@
 
   اسلاگ‌های مجاز جهت انتخاب نوع تیکت
 
-{% childAttributs title="اسلاگ‌های مجاز" %}
+{% parameterPlus title="اسلاگ‌های مجاز" %}
   {% table .child-att %}
   ---
   * dont_access_to_seller
@@ -46,7 +46,7 @@
     *	سایر موارد
   ---
   {% /table %}
-{% /childAttributs %}
+{% /parameterPlus %}
 > **توجه**
 > بدیهی است که تنها بعضی از نقش های طرفین معامله امکان ثبت تیکت با برخی از این تایپ ها را دارند.
 

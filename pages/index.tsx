@@ -10,7 +10,7 @@ const yaml = require("js-yaml");
 
 
 import { fence } from "../markdoc/nodes";
-import { callout, paramaterItem, moreParameters } from "../markdoc/tags";
+import { callout, paramaterItem, moreParameters, parameterPlus } from "../markdoc/tags";
 import * as components from "../components"
 
 // const parseMarkdocFrontmatter = (ast) => {
@@ -135,7 +135,8 @@ const config = {
   tags:{
     callout,
     paramaterItem,
-    moreParameters
+    moreParameters,
+    parameterPlus
   }
 };
 

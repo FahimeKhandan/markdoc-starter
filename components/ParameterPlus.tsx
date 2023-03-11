@@ -1,18 +1,31 @@
-import * as React from 'react';
+import * as React from "react";
+import { v4 as uuid } from "uuid";
 
-export function ParameterPlus({ title, children,  details, importantInfo }) {
+const id = "a" + uuid().replaceAll("-", "");
+
+export function ParameterPlus({ title, children }) {
   return (
-<div className="py-4 border-t border-gray-100">
-    <div className="flex pb-2 ltr">
-        <span v-if="title" className="text-body-1-bold text-gray-700 mr-1">{ title }</span>
-
-        <span v-if="importantInfo" className="text-orange-400 text-caption-2 mr-1  uppercase mt-1">{ importantInfo }</span>
-        <span v-if="details" className="text-gray-400 text-caption-2 mt-1">{ details }</span>
-
+    <div className="accordion-item my-4">
+      <div className="accordion-header mb-0" id={"childAttHeading" + id}>
+        <button
+          className="relative flex border border-gray-100 text-caption-1-bold rounded-xl rounded-b-none items-center w-full py-1 px-5 text-gray-500 hover:text-gray-800 text-left bg-white transition focus:outline-none"
+          type="button"
+          data-te-collapse-init
+          data-te-target={"#collapseChildAtt" + id}
+          aria-controls={"collapseChildAtt" + id}
+          aria-expanded="false"
+        >
+          <i className="ri-close-line ml-2 ri-lg transition"></i>
+          {title}
+        </button>
+      </div>
+      <div
+        id={"collapseChildAtt" + id}
+        className="accordion-collapse collapse collapseChildAtt"
+        aria-labelledby={"childAttHeading" + id}
+      >
+        <div className="accordion-body">{children}</div>
+      </div>
     </div>
-    <div className="text-gray-600">
-        {children}
-    </div>
-  </div>
   );
 }

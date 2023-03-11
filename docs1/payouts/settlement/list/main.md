@@ -10,7 +10,7 @@
 
 وضعیت های ممکن برای تسویه ها:
 
-{% childAttributs title="وضعیت های تراکنش تسویه" %}
+{% parameterPlus title="وضعیت های تراکنش تسویه" %}
 {% table .child-att %}
   ---
  * PENDING
@@ -28,7 +28,7 @@
  * CANCELED
     *	تسویه لغو شده است. لازم به ذکر است که امکان لغو تسویه در وضعیت تسویه‌ی آنی وجود ندارد
 {% /table %}
-{% /childAttributs %}
+{% /parameterPlus %}
 
 
 {% paramaterItem title="business_name" details="string" importantInfo="required" %}
