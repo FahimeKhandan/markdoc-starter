@@ -2,15 +2,15 @@
 در این بخش می‌توانید تیکت ایجاد کنید.
 ##### پارمترها {% .attr %}
 
- {% Attributes title="agreement_tracking_code" details="string" importantInfo="required" %}
+ {% paramaterItem title="agreement_tracking_code" details="string" importantInfo="required" %}
   کد رهگیری معامله
-  {% /Attributes%}
+  {% /paramaterItem%}
 
- {% Attributes title="reporter" details="string" importantInfo="required" %}
+ {% paramaterItem title="reporter" details="string" importantInfo="required" %}
   موبایل شخص
-  {% /Attributes%}
+  {% /paramaterItem%}
 
- {% Attributes title="ticket_type_slug" details="string" importantInfo="required" %}
+ {% paramaterItem title="ticket_type_slug" details="string" importantInfo="required" %}
 
 
   اسلاگ‌های مجاز جهت انتخاب نوع تیکت
@@ -52,23 +52,19 @@
 
 
 
-  {% /Attributes%}
+  {% /paramaterItem%}
 
- {% Attributes title="redirect_url" details="string" importantInfo="required" %}
+ {% paramaterItem title="redirect_url" details="string" importantInfo="required" %}
   لینک بازگشت به کسب و کار پس از ثبت مشکل 
-  {% /Attributes%}
+  {% /paramaterItem%}
 
- {% Attributes title="description" details="string" importantInfo="required" %}
+ {% paramaterItem title="description" details="string" importantInfo="required" %}
   توضیحات
-  {% /Attributes%}
+  {% /paramaterItem%}
 
 
 ##### پارامترهای بیشتر {% .more-attr %}
 
-{% collapsibleParent %}
-
-{% collapsibleItem title="attachments" %}
+{% moreParameters title="attachments" %}
 پیوست ها
-{% /collapsibleItem %}
-
-{% /collapsibleParent %}
+{% /moreParameters %}

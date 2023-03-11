@@ -4,6 +4,6 @@
 
 ##### پارمترها {% .attr %}
 
- {% Attributes title="business" details="string" importantInfo="required" %}
+ {% paramaterItem title="business" details="string" importantInfo="required" %}
   نام کسب و کار
-  {% /Attributes%}
+  {% /paramaterItem%}

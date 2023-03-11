@@ -8,11 +8,11 @@ level: 3
 
 ##### پارمترها {% .attr %}
 
-{% Attributes title="business" details="string" importantInfo="required" %}
+{% paramaterItem title="business" details="string" importantInfo="required" %}
 نام انگلیسی کسب و کار
-{% /Attributes%}
+{% /paramaterItem%}
 
-{% Attributes title="field" details="integer" importantInfo="required" %}
+{% paramaterItem title="field" details="integer" importantInfo="required" %}
 شناسه یکتای فیلد اختصاصی می‌باشد 
-{% /Attributes%}
+{% /paramaterItem%}
 

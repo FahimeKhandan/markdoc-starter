@@ -8,10 +8,10 @@ level: 3
 
 ##### پارمترها {% .attr %}
 
-{% Attributes title="business" details="string" importantInfo="required" %}
+{% paramaterItem title="business" details="string" importantInfo="required" %}
 نام انگلیسی کسب و کار است
-{% /Attributes%}
+{% /paramaterItem%}
 
-{% Attributes title="customer_uuid" details="string" importantInfo="required" %}
+{% paramaterItem title="customer_uuid" details="string" importantInfo="required" %}
 شناسه یکتای مشتری می‌باشد که از طریق سرویس مشاهده لیست مشتریان قابل دسترسی می‌باشد
-{% /Attributes%}
+{% /paramaterItem%}

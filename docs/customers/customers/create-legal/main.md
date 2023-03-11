@@ -8,53 +8,53 @@ level: 3
 
 ##### پارمترها {% .attr %}
 
- {% Attributes details="string" title="legal_name" %}
+ {% paramaterItem details="string" title="legal_name" %}
  نام حقوقی 
-  {% /Attributes%}
+  {% /paramaterItem%}
 
- {% Attributes details="string" title="agent_name" %}
+ {% paramaterItem details="string" title="agent_name" %}
  نام نماینده شرکت در صورتی که مشتری حقوقی باشد.
-  {% /Attributes%}
+  {% /paramaterItem%}
 
- {% Attributes details="string" title="type" importantInfo="required" %}
+ {% paramaterItem details="string" title="type" importantInfo="required" %}
   نوع مشتری ` (LEGAL) `
-  {% /Attributes%}
+  {% /paramaterItem%}
 
- {% Attributes details="string" title="agent_mobile"  importantInfo="required" %}
+ {% paramaterItem details="string" title="agent_mobile"  importantInfo="required" %}
   شماره موبایل مشتری  
-  {% /Attributes%}
+  {% /paramaterItem%}
 
- {% Attributes details="string" title="telephone" %}
+ {% paramaterItem details="string" title="telephone" %}
  شماره تلفن ثابت
-  {% /Attributes%}
+  {% /paramaterItem%}
 
- {% Attributes details="string" title="legal_national_code"  importantInfo="required" %}
+ {% paramaterItem details="string" title="legal_national_code"  importantInfo="required" %}
 کد ملی مشتری  
-  {% /Attributes%}
+  {% /paramaterItem%}
 
- {% Attributes details="string" title="province_id" %}
+ {% paramaterItem details="string" title="province_id" %}
  آیدی استان محل سکونت مشتری
-  {% /Attributes%}
+  {% /paramaterItem%}
 
- {% Attributes details="string" title="city_id" %}
+ {% paramaterItem details="string" title="city_id" %}
  آیدی شهر محل سکونت مشتری
-  {% /Attributes%}
+  {% /paramaterItem%}
 
- {% Attributes details="string" title="address" %}
+ {% paramaterItem details="string" title="address" %}
  آدرس محل سکونت مشتری
-  {% /Attributes%}
+  {% /paramaterItem%}
   
- {% Attributes details="string" title="postal_code" %}
+ {% paramaterItem details="string" title="postal_code" %}
  کدپستی محل سکونت مشتری
-  {% /Attributes%}
+  {% /paramaterItem%}
   
- {% Attributes details="string" title="mcc_code" %}
+ {% paramaterItem details="string" title="mcc_code" %}
  کد صنف مشتری
-  {% /Attributes%}
+  {% /paramaterItem%}
   
- {% Attributes details="string" title="custom_fields" %}
+ {% paramaterItem details="string" title="custom_fields" %}
  فیلد های اختصاصی مشتری. قبل از ثبت این فیلد باید فیلد های اختصاصی برای کسب و کار از طریق سرویس مربوطه که در ادامه توضیح داده خواهد شد ثبت شود.
-  {% /Attributes%}
+  {% /paramaterItem%}
   
 
 

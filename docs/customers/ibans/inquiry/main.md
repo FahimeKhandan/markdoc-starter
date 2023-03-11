@@ -8,23 +8,23 @@ level: 3
 
 ##### پارمترها {% .attr %}
 
-{% Attributes title="business" details="string" importantInfo="required" %}
+{% paramaterItem title="business" details="string" importantInfo="required" %}
 نام انگلیسی کسب و کار است
-{% /Attributes%}
+{% /paramaterItem%}
 
-{% Attributes title="customer_uuid" details="string" importantInfo="required" %}
+{% paramaterItem title="customer_uuid" details="string" importantInfo="required" %}
 شناسه یکتای مشتری می‌باشد که از طریق سرویس مشاهده لیست مشتریان قابل دسترسی می‌باشد
-{% /Attributes%}
+{% /paramaterItem%}
 
 
-{% Attributes title="first_name" details="string" importantInfo="required" %}
+{% paramaterItem title="first_name" details="string" importantInfo="required" %}
 در صورتی که مشتری از نوع حقیقی باشد و نام مشتری خالی باشد این فیلد اجباری است
-{% /Attributes%}
+{% /paramaterItem%}
 
-{% Attributes title="last_name" details="string" importantInfo="required" %}
+{% paramaterItem title="last_name" details="string" importantInfo="required" %}
 در صورتی که مشتری از نوع حقیقی باشد و نام خانوادگی مشتری خالی باشد این فیلد اجباری است
-{% /Attributes%}
+{% /paramaterItem%}
 
-{% Attributes title="legal_name" details="string" importantInfo="required" %}
+{% paramaterItem title="legal_name" details="string" importantInfo="required" %}
 در صورتی که مشتری از نوع حقوقی باشد و نام حقوقی مشتری خالی باشد این فیلد اجباری است.
-{% /Attributes%}
+{% /paramaterItem%}

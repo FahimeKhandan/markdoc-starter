@@ -6,3 +6,5 @@ export * from './TableOfContents';
 export * from './TopNav';
 export * from './SearchBox'
 export * from './Navbar'
+export * from './ParamaterItem'
+export * from './MoreParameters'

@@ -6,7 +6,7 @@
 در صورتی که خریدار مبلغی را پرداخت کرده باشد، بعد از لغو شدن معامله مبلغ معامله به حساب خریدار برگشت داده میشود.
 ##### پارمترها {% .attr %}
 
- {% Attributes title="applicant_mobile" details="string" importantInfo="required" %}
+ {% paramaterItem title="applicant_mobile" details="string" importantInfo="required" %}
   موبایل کاربر درخواست‌دهنده
-  {% /Attributes%}
+  {% /paramaterItem%}
 

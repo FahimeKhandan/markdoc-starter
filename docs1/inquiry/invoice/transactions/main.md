@@ -3,23 +3,23 @@
 
 ##### پارمترها {% .attr %}
 
-{% Attributes title="business" details="string" importantInfo="required" %}
+{% paramaterItem title="business" details="string" importantInfo="required" %}
 نام انگلیسی کسب و کار
-{% /Attributes%}
+{% /paramaterItem%}
 
-{% Attributes title="fromDate" details="string" %}
+{% paramaterItem title="fromDate" details="string" %}
 شروع بازه زمانی با فرمت 14000102
-{% /Attributes%}
+{% /paramaterItem%}
 
-{% Attributes title="toDate" details="string" %}
+{% paramaterItem title="toDate" details="string" %}
 پایان بازه زمانی با فرمت 14000201
-{% /Attributes%}
+{% /paramaterItem%}
 
-{% Attributes title="statusKind" details="string" %}
+{% paramaterItem title="statusKind" details="string" %}
 این پارامتر مشخص کننده نوع تراکنش می‌باشد
-{% /Attributes%}
+{% /paramaterItem%}
 
-{% Attributes title="status" details="string" %}
+{% paramaterItem title="status" details="string" %}
 مشخص کننده وضعیت تراکنش یا تسویه می‌باشد
 
 {% childAttributs title="وضعیت‌های مجاز" %}
@@ -38,9 +38,9 @@
     *	 وضعیت لغو شده
 {% /table %}
 {% /childAttributs %}
-{% /Attributes%}
+{% /paramaterItem%}
 
-{% Attributes title="channel" details="string" %}
+{% paramaterItem title="channel" details="string" %}
 این پارامتر مشخص می‌کند که تراکنش از چه کانالی انجام شده است
 
 {% childAttributs title="کانال‌های مجاز" %}
@@ -65,52 +65,47 @@
     * تراکنش های واریز بانکی
 {% /table %}
 {% /childAttributs %}
-{% /Attributes%}
+{% /paramaterItem%}
 
-{% Attributes title="formId" details="string" %}
+{% paramaterItem title="formId" details="string" %}
 شناسه فرم پرداخت
-{% /Attributes%}
+{% /paramaterItem%}
 
-{% Attributes title="ref_id" details="string" importantInfo="required" %}
+{% paramaterItem title="ref_id" details="string" importantInfo="required" %}
 این پارامتر جستجو بر اساس کد مرجع را فراهم می‌سازد
-{% /Attributes%}
+{% /paramaterItem%}
 
-{% Attributes title="tracking_code" details="string" importantInfo="required" %}
+{% paramaterItem title="tracking_code" details="string" importantInfo="required" %}
 این پارامتر جستجو بر اساس کد پیگیری را فراهم می‌سازد
-{% /Attributes%}
+{% /paramaterItem%}
 
-{% Attributes title="id" details="string" importantInfo="required" %}
+{% paramaterItem title="id" details="string" importantInfo="required" %}
 شناسه یکتای تراکنش
-{% /Attributes%}
+{% /paramaterItem%}
 
-{% Attributes title="track_id" details="string" importantInfo="required" %}
+{% paramaterItem title="track_id" details="string" importantInfo="required" %}
 کد رهگیری در زمان ثبت تسویه
-{% /Attributes%}
+{% /paramaterItem%}
 
-{% Attributes title="factor_number" details="string" importantInfo="required" %}
+{% paramaterItem title="factor_number" details="string" importantInfo="required" %}
 شماره فاکتور که در زمان ایجاد تراکنش درگاه پرداخت ارسال می شود
-{% /Attributes%}
+{% /paramaterItem%}
 
-{% Attributes title="per_page" details="string" importantInfo="required" %}
+{% paramaterItem title="per_page" details="string" importantInfo="required" %}
  تعداد رکورد اطلاعاتی درخواست صورت حساب را مشخص میکند (حداکثر مقدار مجاز 100 می‌باشد)
-{% /Attributes%}
+{% /paramaterItem%}
 
 
 ##### پارامترهای بیشتر {% .more-attr %}
 
-{% collapsibleParent %}
-
-{% collapsibleItem title="start_after"  importantInfo="optional" details="string" %}
+{% moreParameters title="start_after"  importantInfo="optional" details="string" %}
 این پارامتر مشخص میکند که تراکنش های بعد از این تراکنش در لیست خروجی بازگردانده شوند. برای دریافت صفحه های بعدی میتوانید ایدی اخرین تراکنش را در این پارامتر ارسال کنید. تا لیست جدید را دریافت کنید.
-{% /collapsibleItem %}
+{% /moreParameters %}
 
-{% collapsibleItem title="q" details="string" %}
+{% moreParameters title="q" details="string" %}
 مقدار موجود در این پارامتر در فیلدهای تراکنش و فرم و ... جستجو می شود
-{% /collapsibleItem %}
+{% /moreParameters %}
 
-{% collapsibleItem title="search_field" details="string" %}
+{% moreParameters title="search_field" details="string" %}
 محدوده ی جستجو
-{% /collapsibleItem %}
-
-{% /collapsibleParent %}
-
+{% /moreParameters %}

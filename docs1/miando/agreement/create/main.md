@@ -4,100 +4,94 @@
 پیش‌نویس معامله به این معناست که فقط طرف سازنده معامله را تایید کرده است و دیگر اشخاص حاضر در معامله هنوز معامله را تایید نکرده اند.
 
 ##### پارمترها {% .attr %}
- {% Attributes title="trace_id" importantInfo="required" details="string" %}
+ {% paramaterItem title="trace_id" importantInfo="required" details="string" %}
   شناسه یکتا سمت کسب و کار.
-  {% /Attributes%}
+  {% /paramaterItem%}
 
- {% Attributes title="currency_code" importantInfo="required" details="string" %}
+ {% paramaterItem title="currency_code" importantInfo="required" details="string" %}
   واحد پول مورد استفاده در معامله (in:IRR)
-  {% /Attributes%}
+  {% /paramaterItem%}
 
- {% Attributes title="redirect_url" importantInfo="required" details="string" %}
+ {% paramaterItem title="redirect_url" importantInfo="required" details="string" %}
   لینک بازگشت به کسب و کار پس از پرداخت موفق
-  {% /Attributes%}
+  {% /paramaterItem%}
 
- {% Attributes title="description" importantInfo="required" details="string" %}
+ {% paramaterItem title="description" importantInfo="required" details="string" %}
   توضیحات مربوط به توافق نامه
-  {% /Attributes%}
+  {% /paramaterItem%}
 
- {% Attributes title="creator" importantInfo="required" details="string" %}
+ {% paramaterItem title="creator" importantInfo="required" details="string" %}
   نقش ایجاد کننده معامله (in:buyer,seller)
-  {% /Attributes%}
+  {% /paramaterItem%}
 
- {% Attributes title="parties" importantInfo="required" details="array" %}
+ {% paramaterItem title="parties" importantInfo="required" details="array" %}
   اطلاعات طرفین معامله
-  {% /Attributes%}
+  {% /paramaterItem%}
 
- {% Attributes title="parties.*.role" importantInfo="required" details="string" %}
+ {% paramaterItem title="parties.*.role" importantInfo="required" details="string" %}
   نقش طرف معامله (in:buyer,seller)
-  {% /Attributes%}
+  {% /paramaterItem%}
 
- {% Attributes title="parties.*.mobile" importantInfo="required" details="string" %}
+ {% paramaterItem title="parties.*.mobile" importantInfo="required" details="string" %}
   موبایل طرف معامله
-  {% /Attributes%}
+  {% /paramaterItem%}
 
- {% Attributes title="parties.*.iban" importantInfo="required" details="string" %}
+ {% paramaterItem title="parties.*.iban" importantInfo="required" details="string" %}
   شماره شبا طرف معامله
-  {% /Attributes%}
+  {% /paramaterItem%}
 
- {% Attributes title="items" importantInfo="required" details="string" %}
+ {% paramaterItem title="items" importantInfo="required" details="string" %}
 آیتم های یک معامله
-  {% /Attributes%}
+  {% /paramaterItem%}
 
- {% Attributes title="items.*.title" importantInfo="required" details="string" %}
+ {% paramaterItem title="items.*.title" importantInfo="required" details="string" %}
   عنوان کالا
-  {% /Attributes%}
+  {% /paramaterItem%}
 
- {% Attributes title="items.*.category" importantInfo="required" details="string" %}
+ {% paramaterItem title="items.*.category" importantInfo="required" details="string" %}
   دسته‌بندی کالا
   (in:general,digital)
-  {% /Attributes%}
+  {% /paramaterItem%}
 
 
- {% Attributes title="items.*.item_price" importantInfo="required" details="string" %}
+ {% paramaterItem title="items.*.item_price" importantInfo="required" details="string" %}
   مبلغ کل کالا
-  {% /Attributes%}
+  {% /paramaterItem%}
 
- {% Attributes title="items.*.price" importantInfo="required" details="string" %}
+ {% paramaterItem title="items.*.price" importantInfo="required" details="string" %}
   مبلغ بیعانه کالا
-  {% /Attributes%}
+  {% /paramaterItem%}
 
- {% Attributes title="items.*.payer" importantInfo="required" details="string" %}
+ {% paramaterItem title="items.*.payer" importantInfo="required" details="string" %}
   نقش پرداخت‌کننده هزینه مربوط به کالا (in:buyer,seller)
-  {% /Attributes%}
+  {% /paramaterItem%}
 
- {% Attributes title="items.*.payment_method" importantInfo="required" details="string" %}
+ {% paramaterItem title="items.*.payment_method" importantInfo="required" details="string" %}
   نوع پرداخت: پرداخت کامل، پیش پرداخت (in:full-pay,pre-pay)
-  {% /Attributes%}
+  {% /paramaterItem%}
 
- {% Attributes title="items.*.quantity" importantInfo="integer" details="string" %}
+ {% paramaterItem title="items.*.quantity" importantInfo="integer" details="string" %}
   تعداد کالا
-  {% /Attributes%}
+  {% /paramaterItem%}
 
 ##### پارامترهای بیشتر {% .more-attr %}
 
-{% collapsibleParent %}
-
-{% collapsibleItem title="settlement_type" %}
+{% moreParameters title="settlement_type" %}
 نوع تسویه حساب معامله در صورت نهایی شدن (in:wallet,wallet_iban)
 
 wallet: شارژ کیف پول ونداری کاربر
 wallet_iban: شارژ کیف پول و سپس انتقال به شبای کاربر
-{% /collapsibleItem %}
+{% /moreParameters %}
 
-{% collapsibleItem title="items.*.description" %}
+{% moreParameters title="items.*.description" %}
 توضیحات کالا
-{% /collapsibleItem %}
+{% /moreParameters %}
 
-{% collapsibleItem title="items.*.link" %}
+{% moreParameters title="items.*.link" %}
 لینک توضیحات مربوط به کالا
-{% /collapsibleItem %}
+{% /moreParameters %}
 
-{% collapsibleItem title="items.*.attachments" %}
+{% moreParameters title="items.*.attachments" %}
 عکس‌های مربوط به کالا
-{% /collapsibleItem %}
-
-
-{% /collapsibleParent %}
-
+{% /moreParameters %}
 

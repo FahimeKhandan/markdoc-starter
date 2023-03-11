@@ -8,6 +8,6 @@ level: 2
 
 ##### پارمترها {% .attr %}
 
- {% Attributes title="business" details="string" importantInfo="required" %}
+ {% paramaterItem title="business" details="string" importantInfo="required" %}
 نام انگلیسی کسب و کار
-  {% /Attributes%}
+  {% /paramaterItem%}

@@ -8,6 +8,6 @@ level: 3
 
 ##### پارمترها {% .attr %}
 
-{% Attributes title="name" details="string" importantInfo="required" %}
+{% paramaterItem title="name" details="string" importantInfo="required" %}
 نام فیلد اختصاصی
-{% /Attributes%}
+{% /paramaterItem%}

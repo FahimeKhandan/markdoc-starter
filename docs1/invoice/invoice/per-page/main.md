@@ -4,9 +4,9 @@
 
 ##### پارمترها {% .attr %}
 
- {% Attributes title="per_page" details="string" importantInfo="optional" %}
+ {% paramaterItem title="per_page" details="string" importantInfo="optional" %}
   تعداد رکورد اطلاعاتی درخواست صورت حساب را مشخص میکند
-  {% /Attributes%}
- {% Attributes title="page" details="string" importantInfo="optional" %}
+  {% /paramaterItem%}
+ {% paramaterItem title="page" details="string" importantInfo="optional" %}
   با توجه به pagination، صفحه مورد نظر را مشخص می‌کند.
-  {% /Attributes%}
+  {% /paramaterItem%}

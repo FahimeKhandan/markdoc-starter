@@ -3,33 +3,33 @@
 با استفاده از این سرویس می‌توانید درخواست تسویه خود را ثبت کنید 
 ##### پارمترها {% .attr %}
 
-{% Attributes title="amount" details="integer" importantInfo="required" %}
+{% paramaterItem title="amount" details="integer" importantInfo="required" %}
   مبلغ تراکنش به تومان (بزرگتر یا مساوی 5000 و کوچکتر یا مساوی مبلغ کیف پول)
-  {% /Attributes%}
+  {% /paramaterItem%}
 
-{% Attributes title="iban" details="string" importantInfo="required" %}
+{% paramaterItem title="iban" details="string" importantInfo="required" %}
  شماره شبا مقصد که قصد واریز وجه به آن را دارید
-  {% /Attributes%}
+  {% /paramaterItem%}
 
-{% Attributes title="track_id" details="string" importantInfo="required" %}
+{% paramaterItem title="track_id" details="string" importantInfo="required" %}
   رشته پیگیری که به ازای هر درخواست تسویه بایستی یکتا باشد. \
 پیشنهاد ما استفاده از uuid برای این پارامتر است.این پارامتر به حروف بزرگ و کوچک حساس است
-  {% /Attributes%}
+  {% /paramaterItem%}
 
-{% Attributes title="payment_number" details="integer" importantInfo="optional" %}
+{% paramaterItem title="payment_number" details="integer" importantInfo="optional" %}
 شناسه واریز شماره ای اختیاری است
-  {% /Attributes%}
+  {% /paramaterItem%}
 
-{% Attributes title="notify_url" details="string" importantInfo="optional" %}
+{% paramaterItem title="notify_url" details="string" importantInfo="optional" %}
 آدرس وبهوکی که می‌توانید ارسال کنید تا از وضعیت نهایی این برداشت وجه مطلع شوید. \
 در مواقع تست می‌توانید از وبسایت webhook.site استفاده کنید.
-{% /Attributes%}
+{% /paramaterItem%}
 
-{% Attributes title="description" details="string" importantInfo="optional" %}
+{% paramaterItem title="description" details="string" importantInfo="optional" %}
 ارسال توضیحات با محدودیت حداکثر 256 کاراکتر
-  {% /Attributes%}
+  {% /paramaterItem%}
 
-{% Attributes title="is_instant" details="boolean" importantInfo="optional" %}
+{% paramaterItem title="is_instant" details="boolean" importantInfo="optional" %}
 اگر می‌خواهید درخواست ثبت تسویه در لحظه به بانک ارسال شود، مقدار true و در غیر این صورت مقدار false را ارسال کنید.
 
 {% callout type="warning" %}
@@ -38,10 +38,10 @@
 {% /callout %}
 
 
-{% /Attributes%}
+{% /paramaterItem%}
 
 
-{% Attributes title="type" details="string" importantInfo="optional" %}
+{% paramaterItem title="type" details="string" importantInfo="optional" %}
 اگر میخواهید تسویه خود به صورت حساب به حساب انجام شود، A2A (حساب به حساب) و در غیراینصورت مقدار ACH (پایا) را میتوانید ارسال کنید
 
 {% callout type="warning" %}
@@ -53,8 +53,8 @@
     2. ارسال مقدار A2A برای پارامتر type \
    از این امکان استفاده کنید.
    بدیهی است باوجود فعال داشتن ابزار حساب به حساب، در صورت عدم ارسال A2A برای این پارامتر، مقدار پیشفرض(ACH) برای آن در نظر گرفته شده و تسویه به صورت پایا انجام خواهد شد.
-{% /Attributes%}
+{% /paramaterItem%}
 >
 {% /callout %}
 
-{% /Attributes%}
+{% /paramaterItem%}

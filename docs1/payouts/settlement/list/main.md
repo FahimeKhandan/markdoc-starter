@@ -31,14 +31,14 @@
 {% /childAttributs %}
 
 
-{% Attributes title="business_name" details="string" importantInfo="required" %}
+{% paramaterItem title="business_name" details="string" importantInfo="required" %}
 نام انگلیسی کسب و کار
-{% /Attributes%}
+{% /paramaterItem%}
 
-{% Attributes title="per_page" details="integer" importantInfo="optional" %}
+{% paramaterItem title="per_page" details="integer" importantInfo="optional" %}
 تعداد تراکنش های تسویه در هر صفحه را مشخص میکند
-{% /Attributes%}
+{% /paramaterItem%}
 
-{% Attributes title="page" details="integer" importantInfo="optional" %}
+{% paramaterItem title="page" details="integer" importantInfo="optional" %}
 صفحه مورد نظر را مشخص می‌کند
-  {% /Attributes%}
+  {% /paramaterItem%}

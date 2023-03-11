@@ -4,6 +4,6 @@
 
 ##### پارمترها {% .attr %}
 
- {% Attributes title="token" details="string" importantInfo="required" %}
+ {% paramaterItem title="token" details="string" importantInfo="required" %}
   توکن پرداخت که از طریق API دریافت شده است
-  {% /Attributes%}
+  {% /paramaterItem%}

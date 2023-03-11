@@ -8,9 +8,9 @@ level: 2
 
 ##### پارمترها {% .attr %}
 
- {% Attributes title="business" details="string" importantInfo="required" %}
+ {% paramaterItem title="business" details="string" importantInfo="required" %}
 نام انگلیسی کسب و کار
-  {% /Attributes%}
- {% Attributes title="iban" details="string" importantInfo="required" %}
+  {% /paramaterItem%}
+ {% paramaterItem title="iban" details="string" importantInfo="required" %}
   شماره شبایی که قصد دریافت موجودی آن را دارید (طبیعتاً باید این شماره شبا جزو شماره شباهایی باید باشد که هنگام فعال سازی ابزار به آن دسترسی دادید و درحال حاضر فعال میباشد)
-  {% /Attributes%}
+  {% /paramaterItem%}

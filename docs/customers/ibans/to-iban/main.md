@@ -25,26 +25,26 @@ level: 3
 
 ##### پارمترها {% .attr %}
 
-{% Attributes title="business" details="string" importantInfo="required" %}
+{% paramaterItem title="business" details="string" importantInfo="required" %}
 نام انگلیسی کسب و کار است
-{% /Attributes%}
+{% /paramaterItem%}
 
-{% Attributes title="customer_uuid" details="string" importantInfo="required" %}
+{% paramaterItem title="customer_uuid" details="string" importantInfo="required" %}
 شناسه یکتای مشتری می‌باشد که از طریق سرویس مشاهده لیست مشتریان قابل دسترسی می‌باشد
-{% /Attributes%}
+{% /paramaterItem%}
 
-{% Attributes title="card" details="string" importantInfo="required" %}
-{% /Attributes%}
+{% paramaterItem title="card" details="string" importantInfo="required" %}
+{% /paramaterItem%}
 
-{% Attributes title="is_default" details="string" importantInfo="required" %}
+{% paramaterItem title="is_default" details="string" importantInfo="required" %}
 شماره کارت مشتری
-{% /Attributes%}
+{% /paramaterItem%}
 
-{% Attributes title="has_inquiry" details="string" importantInfo="required" %}
+{% paramaterItem title="has_inquiry" details="string" importantInfo="required" %}
 تعیین شماره کارت پیش فرض
-{% /Attributes%}
+{% /paramaterItem%}
 
-{% Attributes title="" details="string" importantInfo="required" %}
-عیین کننده استعلام شماره کارت در لحظه
-{% /Attributes%}
+{% paramaterItem title="" details="string" importantInfo="required" %}
+تعیین کننده استعلام شماره کارت در لحظه
+{% /paramaterItem%}
 

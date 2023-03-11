@@ -9,26 +9,26 @@ level: 3
 
 ##### پارمترها {% .attr %}
 
-{% Attributes title="business" details="string" importantInfo="required" %}
+{% paramaterItem title="business" details="string" importantInfo="required" %}
 نام انگلیسی کسب و کار است
-{% /Attributes%}
+{% /paramaterItem%}
 
-{% Attributes title="customer_uuid" details="string" importantInfo="required" %}
+{% paramaterItem title="customer_uuid" details="string" importantInfo="required" %}
 شناسه یکتای مشتری می‌باشد که از طریق سرویس مشاهده لیست مشتریان قابل دسترسی می‌باشد
-{% /Attributes%}
+{% /paramaterItem%}
 
-{% Attributes title="first_name" details="string" importantInfo="required" %}
+{% paramaterItem title="first_name" details="string" importantInfo="required" %}
 نام مخاطب
-{% /Attributes%}
+{% /paramaterItem%}
 
-{% Attributes title="last_name" details="string" importantInfo="required" %}
+{% paramaterItem title="last_name" details="string" importantInfo="required" %}
 نام خانوادگی مخاطب
-{% /Attributes%}
+{% /paramaterItem%}
 
-{% Attributes title="individual_national_code" details="string" importantInfo="required" %}
+{% paramaterItem title="individual_national_code" details="string" importantInfo="required" %}
  کد ملی مخاطب
-{% /Attributes%}
+{% /paramaterItem%}
 
-{% Attributes title="birthday" details="string" importantInfo="required" %}
+{% paramaterItem title="birthday" details="string" importantInfo="required" %}
 تاریخ تولد جلالی مخاطب
-{% /Attributes%}
+{% /paramaterItem%}

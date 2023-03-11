@@ -4,12 +4,12 @@
 
 ##### پارمترها {% .attr %}
 
-{% Attributes title="business_name" details="string" importantInfo="required" %}
+{% paramaterItem title="business_name" details="string" importantInfo="required" %}
 نام انگلیسی کسب و کار
-{% /Attributes%}
+{% /paramaterItem%}
 
-{% Attributes title="transaction_id" details="integer" importantInfo="required" %}
+{% paramaterItem title="transaction_id" details="integer" importantInfo="required" %}
 آی دی تراکنش تسویه ثبت شده
-{% /Attributes%}
+{% /paramaterItem%}
 
 

@@ -6,6 +6,6 @@
 تنها قراردادهایی که پرداخت آن ها با موفقیت انجام شده است قابلیت نهایی شدن را دارند.
 ##### پارمترها {% .attr %}
 
- {% Attributes title="buyer_mobile" details="string" importantInfo="required" %}
+ {% paramaterItem title="buyer_mobile" details="string" importantInfo="required" %}
   موبایل کاربر درخواست‌دهنده
-  {% /Attributes%}
+  {% /paramaterItem%}

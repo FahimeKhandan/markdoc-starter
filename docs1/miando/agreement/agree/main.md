@@ -5,11 +5,11 @@
 
 ##### پارمترها {% .attr %}
 
- {% Attributes title="action" details="string" importantInfo="required" %}
+ {% paramaterItem title="action" details="string" importantInfo="required" %}
    نوع عملیات (in:`agree`,`reject`)
-  {% /Attributes%}
+  {% /paramaterItem%}
 
- {% Attributes title="applicant_mobile" details="string" importantInfo="required" %}
+ {% paramaterItem title="applicant_mobile" details="string" importantInfo="required" %}
   موبایل کاربر درخواست‌دهنده
-  {% /Attributes%}
+  {% /paramaterItem%}
 

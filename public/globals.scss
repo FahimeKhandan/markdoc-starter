@@ -165,8 +165,7 @@ table.child-att {
     i {
       @apply text-title-2 font-light -ml-6;
     }
-
-    &:not(.collapsed) {
+    &[aria-expanded="true"] {
       i {
         @apply rotate-90;
       }
@@ -396,11 +395,12 @@ div.code-container {
  * Based on dabblet (http://dabblet.com)
  * @author Lea Verou
  */
- p{
- &::-moz-selection, &::selection{
-  @apply bg-gray-500;
- }
- }
+p {
+  &::-moz-selection,
+  &::selection {
+    @apply bg-gray-500;
+  }
+}
 
 code[class*="language-"],
 pre[class*="language-"] {
@@ -409,17 +409,17 @@ pre[class*="language-"] {
 }
 
 pre[class*="language-"],
-code[class*="language-"]{
+code[class*="language-"] {
   &::-moz-selection {
     @apply bg-gray-500;
   }
-  &::selection{
+  &::selection {
     @apply bg-gray-500;
   }
   & ::-moz-selection {
     @apply bg-gray-500;
   }
-  & ::selection{
+  & ::selection {
     @apply bg-gray-500;
   }
 }
@@ -524,20 +524,20 @@ pre[class*="language-"] {
   }
 
   pre[class*="language-"],
-code[class*="language-"]{
-  &::-moz-selection {
-    @apply bg-gray-200;
+  code[class*="language-"] {
+    &::-moz-selection {
+      @apply bg-gray-200;
+    }
+    &::selection {
+      @apply bg-gray-200;
+    }
+    & ::-moz-selection {
+      @apply bg-gray-200;
+    }
+    & ::selection {
+      @apply bg-gray-200;
+    }
   }
-  &::selection{
-    @apply bg-gray-200;
-  }
-  & ::-moz-selection {
-    @apply bg-gray-200;
-  }
-  & ::selection{
-    @apply bg-gray-200;
-  }
-}
   .fence-body {
     .token.property,
     .token.tag,

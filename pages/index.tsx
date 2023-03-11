@@ -9,7 +9,8 @@ import React from "react";
 const yaml = require("js-yaml");
 
 
-import { nodes } from "@markdoc/markdoc";
+import { fence } from "../markdoc/nodes";
+import { callout, paramaterItem, moreParameters } from "../markdoc/tags";
 import * as components from "../components"
 
 // const parseMarkdocFrontmatter = (ast) => {
@@ -127,15 +128,15 @@ export const getStaticProps = async () => {
   return { props: { docs: parsedDateDocs } };
 };
 
-const fence = {
-  render: 'CodeBlock',
-  attributes: nodes.fence.attributes,
-};
-
 const config = {
   nodes: {
     fence,
   },
+  tags:{
+    callout,
+    paramaterItem,
+    moreParameters
+  }
 };
 
 const Blog = (props) => {

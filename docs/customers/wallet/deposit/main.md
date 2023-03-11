@@ -7,22 +7,22 @@ level: 3
 در صورت نیاز به بالا بردن موجودی کیف پول مشتری می‌توانید با استفاده از این سرویس، یک تراکنش واریز به حساب، برای مشتری ثبت نمایید.
 
 ##### پارمترها {% .attr %}
-{% Attributes title="business" details="string" importantInfo="required" %}
+{% paramaterItem title="business" details="string" importantInfo="required" %}
 نام انگلیسی کسب و کار است
-{% /Attributes%}
+{% /paramaterItem%}
 
-{% Attributes title="customer_uuid" details="string" importantInfo="required" %}
+{% paramaterItem title="customer_uuid" details="string" importantInfo="required" %}
 شناسه یکتای مشتری می‌باشد که از طریق سرویس مشاهده لیست مشتریان قابل دسترسی می‌باشد
-{% /Attributes%}
+{% /paramaterItem%}
 
-{% Attributes title="amount" details="string" importantInfo="required" %}
+{% paramaterItem title="amount" details="string" importantInfo="required" %}
 مبلغی که می‌خواهید به کیف پول مشتری اضافه شود
-{% /Attributes%}
+{% /paramaterItem%}
 
-{% Attributes title="comment" details="string" importantInfo="optional" %}
+{% paramaterItem title="comment" details="string" importantInfo="optional" %}
 توضیحات مربوط به تراکنش واریزی
-{% /Attributes%}
+{% /paramaterItem%}
 
-{% Attributes title="track_id" details="string" importantInfo="required" %}
+{% paramaterItem title="track_id" details="string" importantInfo="required" %}
 شماره پیگیری غیرتکراری
-{% /Attributes%}
+{% /paramaterItem%}

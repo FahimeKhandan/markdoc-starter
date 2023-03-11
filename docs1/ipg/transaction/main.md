@@ -4,10 +4,10 @@
 
 ##### پارمترها {% .attr %}
 
- {% Attributes title="api_key" details="string" importantInfo="required" %}
+ {% paramaterItem title="api_key" details="string" importantInfo="required" %}
   این کلید بعد از ساخت درگاه پرداخت صادر می‌شود. برای دریافت این کلید به داشبورد وندار مراجعه کنید
-  {% /Attributes%}
+  {% /paramaterItem%}
 
- {% Attributes title="token" details="numeric" importantInfo="required" %}
+ {% paramaterItem title="token" details="numeric" importantInfo="required" %}
   همان توکن پرداختی که در مرحله یک دریافت کردید و در این مرحله از به صورت انتهای آدرس بازگشتی اضافه شده است.
-  {% /Attributes%}
+  {% /paramaterItem%}

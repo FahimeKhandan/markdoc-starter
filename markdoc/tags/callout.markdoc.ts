@@ -1,7 +1,7 @@
 import {Callout} from '../../components';
 
 export const callout = {
-  render: Callout,
+  render: 'Callout',
   children: ['paragraph', 'tag', 'list'],
   attributes: {
     title: {
