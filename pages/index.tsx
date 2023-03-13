@@ -10,8 +10,13 @@ const yaml = require("js-yaml");
 
 
 import { fence } from "../markdoc/nodes";
-import { callout, paramaterItem, moreParameters, parameterPlus } from "../markdoc/tags";
-import * as components from "../components"
+import {
+  callout,
+  paramaterItem,
+  moreParameters,
+  parameterPlus,
+} from "../markdoc/tags";
+import * as components from "../components";
 
 // const parseMarkdocFrontmatter = (ast) => {
 //   return ast.attributes.frontmatter
@@ -132,16 +137,17 @@ const config = {
   nodes: {
     fence,
   },
-  tags:{
+  tags: {
     callout,
     paramaterItem,
     moreParameters,
-    parameterPlus
-  }
+    parameterPlus,
+  },
 };
 
 const Blog = (props) => {
   const { docs } = props;
+
   return (
     <div>
       {docs.map((doc, i) => {
@@ -156,7 +162,9 @@ const Blog = (props) => {
             <div className="element">
               <div className="relative pl-[4%] pr-[6%] py-[74px] w-full flex flex-col lg:grid lg:grid-cols-11">
                 <div className="col-span-6 lg:ml-16">
-                  <h1 id={doc.id}>{doc.title}</h1>
+                  <h1 id={doc.id} className="mb-5">
+                    {doc.title}
+                  </h1>
 
                   {Markdoc.renderers.react(parsedContent, React, {
                     components,
@@ -167,7 +175,7 @@ const Blog = (props) => {
                     <a className="cursor-pointer mr-1"> خیر </a>
                   </div>
                   <p
-                    v-else
+                     v-else="true"
                     className="mt-8 text-body-2 font-medium text-gray-600"
                   >
                     از اینکه با ثبت نظر خود، به بهبود داکیومنت‌های وندار کمک
@@ -180,14 +188,14 @@ const Blog = (props) => {
                 </div>
                 <div className="fence-container">
                   {Markdoc.renderers.react(parsedContentRequest, React, {
-                    components
+                    components,
                   })}
                   <div className="light-fence">
                     {Markdoc.renderers.react(parsedContentResponse, React, {
-                      components
+                      components,
                     })}
                     {Markdoc.renderers.react(parsedContentEndpoint, React, {
-                      components
+                      components,
                     })}
                   </div>
                 </div>

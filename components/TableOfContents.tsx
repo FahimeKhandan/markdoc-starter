@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import { SearchBox } from "../components";
 
-export function TableOfContents({ toc }) {
+export function TableOfContents({ childToParent, toc }) {
   const items = toc;
   // .filter(
   //   (item) => item.id && (item.level === 2 || item.level === 3)
@@ -31,18 +31,18 @@ export function TableOfContents({ toc }) {
               API
             </span>
           </a>
-          <SearchBox />
+          <SearchBox SearchToParent={() => childToParent()} />
         </div>
 
         <div className="sidebar-menu">
           <ul className="space-y-2 menu-list">
-            {items.map((item) => {
+            {items.map((item, index) => {
               const href = item.id ? `#${item.id}` : null;
               const active =
                 typeof window !== "undefined" && window.location.hash === href;
               return (
                 <li
-                  key={item.title}
+                  key={item.title + index}
                   className={[
                     active ? "active" : undefined,
                     item.level === 3 ? "pr-6" : undefined,
@@ -52,7 +52,10 @@ export function TableOfContents({ toc }) {
                     .join(" ")}
                 >
                   {item.level !== 1 ? (
-                    <Link className="flex items-center text-base font-bold mt-1 text-gray-500 rounded-lg hover:text-gray-800" href={href}>
+                    <Link
+                      className="flex items-center text-base font-bold mt-1 text-gray-500 rounded-lg hover:text-gray-800"
+                      href={href}
+                    >
                       <span className="font-medium text-body-2 py-0.5">
                         {item.title}
                       </span>

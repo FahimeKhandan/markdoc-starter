@@ -1,8 +1,8 @@
-export function SearchBox() {
+export function SearchBox({SearchToParent}) {
   return (
     <div className="flex justify-center">
       <div className="w-full">
-        <a className="relative flex flex-wrap items-center w-full mb-2 border border-solid border-gray-200 rounded-lg bg-gray-50 duration-150 ease-in-out">
+        <a onClick={() => SearchToParent()} className="relative flex flex-wrap items-center w-full mb-2 border border-solid border-gray-200 rounded-lg bg-gray-50 duration-150 ease-in-out">
           <span
             className="input-group-text flex items-center pr-3 py-1 text-base font-normal text-gray-600 text-center whitespace-nowrap rounded"
             id="basic-addon2"

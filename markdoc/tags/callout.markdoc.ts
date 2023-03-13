@@ -1,11 +1,15 @@
-import {Callout} from '../../components';
+import { Callout } from "../../components";
 
 export const callout = {
-  render: 'Callout',
-  children: ['paragraph', 'tag', 'list'],
+  render: "Callout",
+  children: ["paragraph", "tag", "list"],
   attributes: {
     title: {
       type: String,
+    },
+    type: {
+      type: String,
+      default: "note",
     },
   },
 };

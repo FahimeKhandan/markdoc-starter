@@ -158,9 +158,21 @@ table.child-att {
   @apply mt-8;
 }
 
+.callout {
+  p,
+  li {
+    font-size: 13px !important;
+  }
+
+  .icon {
+    padding-right: 8px;
+    align-items: center;
+  }
+}
+
 .accordion-item {
   button {
-    &[aria-expanded="false"]  {
+    &[aria-expanded="false"] {
       @apply border-b border-x-gray-100 w-fit rounded-b-xl;
 
       i {
@@ -323,7 +335,7 @@ div.code-container {
     }
 
     .fence-body {
-      @apply p-3 max-h-[73vh] relative border border-response-toolbar rounded-b-xl overflow-auto;
+      @apply p-3 max-h-[73vh] relative border-b border-response-toolbar rounded-b-xl overflow-auto;
 
       /* width */
       &::-webkit-scrollbar {

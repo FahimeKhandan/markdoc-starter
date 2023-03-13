@@ -1,3 +1,4 @@
+```
 **GET** {% .get %}/v2/business/:business/customers/:customer_uuid/wallet
 
 
@@ -5,3 +6,5 @@
 
 
 **POST** {% .put %}/v2/business/:business/customers/:customer_uuid/wallet/withdraw
+
+```
